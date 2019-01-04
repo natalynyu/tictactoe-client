@@ -12,6 +12,34 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      //Sign Up Form
+      <h6>Sign Up</h6>
+        <form id="sign-up">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="text" name="credentials[password]" placeholder="Password">
+          <input type="submit">
+        </form>
+        <h6 id='signup-message'></h6>
+      //Sign In Form
+      <h6>Sign In</h6>
+        <form id="sign-in">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="text" name="credentials[password]" placeholder="Password">
+          <input type="submit">
+        </form>
+        <h6 id='signin-message'></h6>
+      //Change Password Form
+      <h6>Change Password</h6>
+        <form id="change-password">
+          <input type="text" name="passwords[old]" placeholder="Old Password">
+          <input type="text" name="passwords[new]" placeholder="New Password">
+          <input type="submit">
+        </form>
+        <h6 id='password-message'></h6>
+      //Sign Out Button
+      <input type="button" id="sign-out" value="Sign Out">
+      <h6 id='signout-message'></h6>
+
       <div class="container">
             <div class="row">
               <div class="col-4 col-lg-4 box text-center"></div>
