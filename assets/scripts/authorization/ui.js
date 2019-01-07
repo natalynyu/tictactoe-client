@@ -4,16 +4,16 @@ const store = require('../store')
 
 // Sign Up UI
 const onSignUpSuccess = responseData => {
-  console.log('responseData is ' + responseData)
+  console.log('responseData is ', responseData)
   $('#signup-message').text('Successfully created an account!')
 }
 const onSignUpFail = () => {
   $('#signup-message').text('There was an error with signing up. Please try again.')
 }
 // Sign In UI
-const onSignInSuccess = (responseData) => {
+const onSignInSuccess = responseData => {
   store.user = responseData.user
-  console.log('Store contains: ' + store)
+  console.log('Store contains: ', store)
   $('#signin-message').text('You have successfully signed in.')
 }
 const onSignInFail = () => {
@@ -21,6 +21,7 @@ const onSignInFail = () => {
 }
 // Password Update UI
 const onChangePasswordSuccess = () => {
+  console.log('Store contains: ', store)
   $('#password-message').text('Password was updated successfully.')
 }
 const onChangePasswordFail = () => {
@@ -29,10 +30,10 @@ const onChangePasswordFail = () => {
 // Sign Out UI
 const onSignOutSuccess = () => {
   store.user = null
-  $('signout-message').text('You have signed out successfully.')
+  $('#signout-message').text('You have signed out successfully.')
 }
 const onSignOutFail = () => {
-  $('signout-message').text('There was an error with signing out. Please try again.')
+  $('#signout-message').text('There was an error with signing out. Please try again.')
 }
 
 module.exports = {
