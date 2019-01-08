@@ -3,8 +3,15 @@
 const store = require('../store')
 
 // Create game success/fail UI
-const onCreateGameSuccess = () => {
-  $('#createGame-message').text('Get ready to play!')
+const onCreateGameSuccess = (responseData) => {
+  store.game = responseData.game
+  console.log(responseData)
+  $('.container').show()
+  $('#gameInfo').show()
+  $('#createGame').hide()
+  $('#signin-message').hide()
+  $('.cell').html('')
+  $('#playerIndicator').text('Player 1, it\'s your turn!')
 }
 const onCreateGameFail = () => {
   $('#createGame-message').text('There was an error with starting the game. Please try again.')
@@ -30,6 +37,14 @@ const onShowOneGameSuccess = () => {
 const onShowOneGameFail = () => {
   $('#showGame-message').text('There was an error with showing the game. Please try again.')
 }
+const onUpdateGameSuccess = (id, value) => {
+  event.preventDefault()
+  store.game.id = id
+  store.game.value = value
+}
+const onUpdateGameFail = () => {
+  $('#updateGame-message').text('There was an error with updating the game. Please try again.')
+}
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFail,
@@ -38,5 +53,7 @@ module.exports = {
   onShowCompletedGamesSuccess,
   onShowCompletedGamesFail,
   onShowOneGameSuccess,
-  onShowOneGameFail
+  onShowOneGameFail,
+  onUpdateGameSuccess,
+  onUpdateGameFail
 }
