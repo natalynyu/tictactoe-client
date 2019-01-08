@@ -5,7 +5,6 @@ const store = require('../store')
 // Create game success/fail UI
 const onCreateGameSuccess = (responseData) => {
   store.game = responseData.game
-  console.log(responseData)
   $('.container').show()
   $('#gameInfo').show()
   $('#createGame').hide()

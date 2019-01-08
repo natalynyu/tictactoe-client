@@ -4,7 +4,6 @@ const store = require('../store')
 
 // Sign Up UI
 const onSignUpSuccess = responseData => {
-  console.log('responseData is ', responseData)
   $('#signup-message').text('Successfully created an account!')
 }
 const onSignUpFail = () => {
@@ -13,7 +12,6 @@ const onSignUpFail = () => {
 // Sign In UI
 const onSignInSuccess = responseData => {
   store.user = responseData.user
-  console.log('Store contains: ', store)
   $('#createGame').show()
   $('#sign-out').show()
   $('#change-password').show()
@@ -31,7 +29,6 @@ const onSignInFail = () => {
 }
 // Password Update UI
 const onChangePasswordSuccess = () => {
-  console.log('Store contains: ', store)
   $('#password-message').text('Password was updated successfully.')
 }
 const onChangePasswordFail = () => {
@@ -40,7 +37,6 @@ const onChangePasswordFail = () => {
 // Sign Out UI
 const onSignOutSuccess = () => {
   store.user = null
-  console.log('Store contains: ', store)
   $('#signout-message').text('You have signed out successfully.')
   $('#createGame').hide()
   $('#changePassHeading').hide()
