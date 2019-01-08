@@ -10,6 +10,7 @@ const onCreateGameSuccess = (responseData) => {
   $('#gameInfo').show()
   $('#createGame').hide()
   $('#signin-message').hide()
+  $('#password-message').hide()
   $('.cell').html('')
   $('#playerIndicator').text('Player 1, it\'s your turn!')
 }
@@ -17,43 +18,18 @@ const onCreateGameFail = () => {
   $('#createGame-message').text('There was an error with starting the game. Please try again.')
 }
 // Show all games success/fail UI
-const onShowAllGamesSuccess = () => {
+const onShowAllGamesSuccess = (responseData) => {
   $('#allGames-message').text('Successfully showed all games below.')
+  store.game = responseData.games
+  $('#showAllGames-message').text('Games played:' + store.game.length)
 }
 const onShowAllGamesFail = () => {
-  $('#allGames-message').text('There was an error with showing all games. Please try again.')
+  $('#showAllGames-message').text('There was an error with showing all games. Please try again.')
 }
-// Show completed games success/fail UI
-const onShowCompletedGamesSuccess = () => {
-  $('#completedGames-message').text('Successfuly showed completed games below.')
-}
-const onShowCompletedGamesFail = () => {
-  $('#completedGames-message').text('There was an error with showing the completed games. Please try again.')
-}
-// Show one games success/fail UI
-const onShowOneGameSuccess = () => {
-  $('#showGame-message').text('Successfully showed game.')
-}
-const onShowOneGameFail = () => {
-  $('#showGame-message').text('There was an error with showing the game. Please try again.')
-}
-const onUpdateGameSuccess = (id, value) => {
-  event.preventDefault()
-  store.game.id = id
-  store.game.value = value
-}
-const onUpdateGameFail = () => {
-  $('#updateGame-message').text('There was an error with updating the game. Please try again.')
-}
+
 module.exports = {
   onCreateGameSuccess,
   onCreateGameFail,
   onShowAllGamesSuccess,
-  onShowAllGamesFail,
-  onShowCompletedGamesSuccess,
-  onShowCompletedGamesFail,
-  onShowOneGameSuccess,
-  onShowOneGameFail,
-  onUpdateGameSuccess,
-  onUpdateGameFail
+  onShowAllGamesFail
 }
