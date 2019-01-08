@@ -3,19 +3,9 @@
 const config = require('../config')
 const store = require('../store')
 
-const findAllGames = () => {
+const showAllCompletedGames = () => {
   return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const findCompletedGames = () => {
-  return $.ajax({
-    url: config.apiUrl + '/games?over=1',
+    url: config.apiUrl + '/games?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -33,30 +23,29 @@ const createGame = () => {
   })
 }
 
-const findGame = (id) => {
-  return $.ajax({
-    url: config.apiUrl + `/games/${id}`,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const updateGame = (id) => {
+const updateGame = (id, index, cellValue, over) => {
   return $.ajax({
     url: config.apiUrl + `/games/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    contentType: 'application/JSON',
+    data: JSON.stringify(
+      {
+        'game': {
+          'cell': {
+            'index': index,
+            'value': cellValue
+          },
+          'over': over
+        }
+      })
   })
 }
 
 module.exports = {
-  findAllGames,
-  findCompletedGames,
+  showAllCompletedGames,
   createGame,
-  findGame,
   updateGame
 }
