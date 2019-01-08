@@ -3,14 +3,15 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
 let turn = 1
 /**
  * This function is intended to be called when the user clicks on a cell.
  * @param {Event} event - the event object
 */
-const placeMarker = (event) => {
-  if ($(event.target).hasClass('cell')) {
+const onBoardClick = (event) => {
+  if ($(event.target).hasClass('cell') && event.target.innerHTML === '') {
     if (turn % 2 === 1) {
       event.target.innerHTML = 'x'
       turn++
@@ -20,15 +21,28 @@ const placeMarker = (event) => {
       turn++
       $('#playerIndicator').html('Player 1, it\'s your turn!')
     }
-  }
-  if (checkForXWin()) {
-    console.log('Player 1 won!')
-    // $('.container').off('click')
-  } else if (checkForOWin()) {
-    console.log('Player 2 won!')
-    // $('.container').off('click')
-  } else if (checkForDraw()) {
-    console.log('It was a draw!')
+    let over = false
+    const currentBoard = createCurrentBoard()
+    if (checkForXWin(currentBoard)) {
+      $('#playerIndicator').html('Player 1 won!')
+      over = true
+      $('.container').off('click')
+    } else if (checkForOWin(currentBoard)) {
+      $('#playerIndicator').html('Player 2 won!')
+      over = true
+      $('.container').off('click')
+    } else if (checkForDraw(currentBoard)) {
+      $('#playerIndicator').html('It was a draw!')
+      over = true
+    }
+    const id = store.game.id
+    const index = event.target.id.slice(1)
+    const cellValue = $(event.target).text()
+    api.updateGame(id, index, cellValue, over)
+    if (over === true) {
+      $('#createGame').show()
+      turn = 1
+    }
   }
 }
 
@@ -53,9 +67,7 @@ const createCurrentBoard = () => {
   return currentBoard
 }
 
-const currentBoard = createCurrentBoard()
-
-const checkForXWin = () => {
+const checkForXWin = (currentBoard) => {
   let matched = false
   for (let i = 0; i < winCombinations.length; i++) {
     matched = true
@@ -72,7 +84,7 @@ const checkForXWin = () => {
   return matched
 }
 
-const checkForOWin = () => {
+const checkForOWin = (currentBoard) => {
   let matched = false
   for (let i = 0; i < winCombinations.length; i++) {
     matched = true
@@ -93,12 +105,26 @@ const isDraw = board => {
   return board !== ''
 }
 
-const checkForDraw = () => {
-  (currentBoard.every(isDraw))
+const checkForDraw = (currentBoard) => {
+  return currentBoard.every(isDraw)
+}
+
+const onPlay = () => {
+  api.createGame()
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onCreateGameFail)
+}
+
+const onShowAllGames = () => {
+  api.showAllCompletedGames()
+    .then(ui.onShowAllGamesSuccess)
+    .catch(ui.onShowAllGamesFail)
 }
 
 const addGameHandlers = () => {
-  $('.container').on('click', placeMarker)
+  $('.container').on('click', onBoardClick)
+  $('#createGame').on('click', onPlay)
+  $('#showAllGames').on('click', onShowAllGames)
 }
 
 module.exports = {
