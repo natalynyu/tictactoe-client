@@ -1,10 +1,31 @@
 @import '~bootstrap/scss/bootstrap';
 
 $background-color: #fff;
-$font-color: #eee;
+$font-color: #000;
 $white: #fff;
 $black: #000;
 
+h1 {
+  font-family: 'Monoton', cursive;
+}
+
+h6 {
+  font-family: 'Pattaya', cursive;
+}
+
+input[type='text'] {
+  font-family: 'Pattaya', cursive;
+}
+
+input[type='submit'] {
+  font-family: 'Monoton', cursive;
+}
+input[type='button'] {
+  font-family: 'Monoton', cursive;
+}
+span {
+  font-family: 'Pattaya', cursive;
+}
 body {
   background-color: $background-color;
 }
@@ -14,6 +35,8 @@ body {
   background-color: $white;
   border: 1px solid $black;
   color: $font-color;
+  font-size: 24px;
+  font-family: 'Monoton', cursive;
   display: flex;
   height: 80px;
   justify-content: center;
