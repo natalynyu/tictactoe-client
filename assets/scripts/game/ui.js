@@ -11,6 +11,7 @@ const onCreateGameSuccess = (responseData) => {
   $('#signin-message').hide()
   $('#password-message').hide()
   $('.cell').html('')
+  $('#showAllGames-message').fadeOut(2500)
   $('#playerIndicator').text('Player 1, it\'s your turn!')
 }
 const onCreateGameFail = () => {
@@ -20,7 +21,8 @@ const onCreateGameFail = () => {
 const onShowAllGamesSuccess = (responseData) => {
   $('#allGames-message').text('Successfully showed all games below.')
   store.game = responseData.games
-  $('#showAllGames-message').text('Games played:' + store.game.length)
+  $('#showAllGames-message').text('Games played: ' + store.game.length)
+  $('#showAllGames-message').show()
 }
 const onShowAllGamesFail = () => {
   $('#showAllGames-message').text('There was an error with showing all games. Please try again.')
