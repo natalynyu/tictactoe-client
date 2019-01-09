@@ -1,5 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
+@font-face {
+  font-family: 'Monoton';
+  src: url('public/fonts/Monoton/Monoton-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pattaya';
+  src: url('public/fonts/Pattaya/Pattaya-Regular.ttf') format('truetype');
+}
+
 $background-color: #fff;
 $font-color: #000;
 $white: #fff;
@@ -11,7 +21,7 @@ h1 {
 }
 
 h6, span {
-  font-family: 'Pattaya', cursive;
+  font-family: 'Pattaya', sans-serif;
   margin-top: 4px;
 }
 
