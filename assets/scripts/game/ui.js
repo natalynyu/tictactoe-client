@@ -20,9 +20,9 @@ const onCreateGameFail = () => {
 // Show all games success/fail UI
 const onShowAllGamesSuccess = (responseData) => {
   $('#allGames-message').text('Successfully showed all games below.')
-  store.game = responseData.games
-  $('#showAllGames-message').text('Games played: ' + store.game.length)
-  $('#showAllGames-message').show()
+  store.games = responseData.games
+  $('#showAllGames-message').text('Games played: ' + store.games.length)
+  $('#showAllGames-message').show().fadeOut(6000)
 }
 const onShowAllGamesFail = () => {
   $('#showAllGames-message').text('There was an error with showing all games. Please try again.')
