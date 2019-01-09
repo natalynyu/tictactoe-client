@@ -14,15 +14,26 @@ $background-color: #fff;
 $font-color: #000;
 $white: #fff;
 $black: #000;
+$royalblue: #4169E1;
 
 h1 {
   font-family: 'Monoton', cursive;
   text-align: center;
+  color: $royalblue;
 }
 
 h6, span {
   font-family: 'Pattaya', sans-serif;
   margin-top: 4px;
+}
+
+body {
+  text-align: center;
+}
+
+.gameboard {
+  display: inline-block;
+  text-align: initial;
 }
 
 input[type='text'] {
@@ -85,4 +96,22 @@ body {
 #c8 {
   border-bottom-style: none;
   border-right-style: none;
+}
+#signup-message {
+  color: $royalblue;
+}
+#signin-message {
+  color: $royalblue;
+}
+#signout-message {
+  color: $royalblue;
+}
+#password-message {
+  color: $royalblue;
+}
+#showAllGames-message {
+  color: $royalblue;
+}
+#playerIndicator {
+  color: $royalblue;
 }
