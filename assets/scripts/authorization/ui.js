@@ -22,14 +22,14 @@ const onSignInSuccess = responseData => {
   $('#sign-up').hide()
   $('#signup-message').hide()
   $('#signout-message').hide()
-  $('#signin-message').text('You have successfully signed in.').show()
+  $('#signin-message').text('You have successfully signed in.').show().fadeOut(2000)
 }
 const onSignInFail = () => {
-  $('#signin-message').text('There was an error with signing in. Please try again.').show()
+  $('#signin-message').text(`Please check your login credentials.`).show()
 }
 // Password Update UI
 const onChangePasswordSuccess = () => {
-  $('#password-message').text('Password was updated successfully.').show()
+  $('#password-message').text('Password was updated successfully.').show().fadeOut(2000)
 }
 const onChangePasswordFail = () => {
   $('#password-message').text('There was an error with changing your password. Please try again.').show()
@@ -48,6 +48,7 @@ const onSignOutSuccess = () => {
   $('#signUpHeading').show()
   $('#sign-in').show()
   $('#sign-up').show()
+  $('#signout-message').fadeOut(1500)
 }
 const onSignOutFail = () => {
   $('#signout-message').text('There was an error with signing out. Please try again.').show()
