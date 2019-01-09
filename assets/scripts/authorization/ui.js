@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('../store')
-
 // Sign Up UI
 const onSignUpSuccess = responseData => {
   $('#signup-message').text('Successfully created an account!')
@@ -22,6 +21,7 @@ const onSignInSuccess = responseData => {
   $('#sign-up').hide()
   $('#signup-message').hide()
   $('#signout-message').hide()
+  $('#showAllGames').show()
   $('#signin-message').text('You have successfully signed in.').show().fadeOut(2000)
 }
 const onSignInFail = () => {
