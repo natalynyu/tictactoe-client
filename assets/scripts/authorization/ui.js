@@ -22,22 +22,22 @@ const onSignInSuccess = responseData => {
   $('#sign-up').hide()
   $('#signup-message').hide()
   $('#signout-message').hide()
-  $('#signin-message').text('You have successfully signed in.')
+  $('#signin-message').text('You have successfully signed in.').show()
 }
 const onSignInFail = () => {
-  $('#signin-message').text('There was an error with signing in. Please try again.')
+  $('#signin-message').text('There was an error with signing in. Please try again.').show()
 }
 // Password Update UI
 const onChangePasswordSuccess = () => {
-  $('#password-message').text('Password was updated successfully.')
+  $('#password-message').text('Password was updated successfully.').show()
 }
 const onChangePasswordFail = () => {
-  $('#password-message').text('There was an error with changing your password. Please try again.')
+  $('#password-message').text('There was an error with changing your password. Please try again.').show()
 }
 // Sign Out UI
 const onSignOutSuccess = () => {
   store.user = null
-  $('#signout-message').text('You have signed out successfully.')
+  $('#signout-message').text('You have signed out successfully.').show()
   $('#createGame').hide()
   $('#changePassHeading').hide()
   $('#change-password').hide()
@@ -50,7 +50,7 @@ const onSignOutSuccess = () => {
   $('#sign-up').show()
 }
 const onSignOutFail = () => {
-  $('#signout-message').text('There was an error with signing out. Please try again.')
+  $('#signout-message').text('There was an error with signing out. Please try again.').show()
 }
 
 module.exports = {

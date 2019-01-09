@@ -17,4 +17,8 @@ $(() => {
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#changePassHeading').hide()
+  // prevent extra empty space from showing on page load
+  $('#signin-message').hide()
+  $('#password-message').hide()
+  $('#signout-message').hide()
 })
