@@ -18,8 +18,8 @@
       <h6 id="signUpHeading">Sign Up</h6>
         <form id="sign-up">
           <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="text" name="credentials[password]" placeholder="Password">
-          <input type="text" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
           <input type="submit">
         </form>
         <h6 id='signup-message'></h6>
@@ -27,18 +27,16 @@
       <h6 id="signInHeading">Sign In</h6>
         <form id="sign-in">
           <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="text" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password]" placeholder="Password">
           <input type="submit">
         </form>
-        <h6 id='signin-message'></h6>
       <!-- Change Password Form -->
       <h6 id="changePassHeading">Change Password</h6>
         <form id="change-password">
-          <input type="text" name="passwords[old]" placeholder="Old Password">
-          <input type="text" name="passwords[new]" placeholder="New Password">
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
           <input type="submit">
         </form>
-        <h6 id='password-message'></h6>
       <!-- Sign Out Button -->
       <input type="button" id="sign-out" value="Sign Out">
       <h6 id='signout-message'></h6>
@@ -59,13 +57,15 @@
               <div class="col-4 col-lg-4 box text-center cell" id="c7"></div>
               <div class="col-4 col-lg-4 box text-center cell" id="c8"></div>
             </div>
-            <span id="playerIndicator">Player 1, it's your turn!</span>
+            <span id="playerIndicator" class="row">Player 1, it's your turn!</span>
       </div>
       <!-- Creates a new game -->
       <input type="button" id="createGame" value="Play!">
+      <h6 id='signin-message'></h6>
+      <span id='password-message'></span>
       <!-- Display all games -->
       <div id="gameInfo">
-      <input type="button" id="showAllGames" value="Show All Games">
+      <input type="button" id="showAllGames" value="Game History">
       <h6 id='showAllGames-message'></h6>
       </div>
       </div>
