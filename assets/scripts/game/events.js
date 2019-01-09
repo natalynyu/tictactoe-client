@@ -6,11 +6,13 @@ const ui = require('./ui.js')
 const store = require('../store.js')
 
 let turn = 1
+let over = false
 /**
  * This function is intended to be called when the user clicks on a cell.
  * @param {Event} event - the event object
 */
 const onBoardClick = (event) => {
+  if (over) return
   if ($(event.target).hasClass('cell') && event.target.innerHTML === '') {
     if (turn % 2 === 1) {
       event.target.innerHTML = 'x'
@@ -21,16 +23,13 @@ const onBoardClick = (event) => {
       turn++
       $('#playerIndicator').html('Player 1, it\'s your turn!')
     }
-    let over = false
     const currentBoard = createCurrentBoard()
     if (checkForXWin(currentBoard)) {
       $('#playerIndicator').html('Player 1 won!')
       over = true
-      $('.container').off('click')
     } else if (checkForOWin(currentBoard)) {
       $('#playerIndicator').html('Player 2 won!')
       over = true
-      $('.container').off('click')
     } else if (checkForDraw(currentBoard)) {
       $('#playerIndicator').html('It was a draw!')
       over = true
@@ -110,6 +109,7 @@ const checkForDraw = (currentBoard) => {
 }
 
 const onPlay = () => {
+  over = false
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFail)
