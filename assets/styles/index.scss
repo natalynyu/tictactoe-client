@@ -10,12 +10,18 @@ h1 {
   text-align: center;
 }
 
-h6 {
+h6, span {
   font-family: 'Pattaya', cursive;
+  margin-top: 4px;
 }
 
 input[type='text'] {
   font-family: 'Pattaya', cursive;
+}
+
+input[type='password'] {
+  font-family: 'Pattaya', cursive;
+  margin-bottom: 4px;
 }
 
 input[type='submit'] {
@@ -23,6 +29,7 @@ input[type='submit'] {
 }
 input[type='button'] {
   font-family: 'Monoton', cursive;
+  margin-bottom: 4px;
 }
 span {
   font-family: 'Pattaya', cursive;
@@ -30,7 +37,6 @@ span {
 body {
   background-color: $background-color;
 }
-
 .box {
   align-items: center;
   background-color: $white;
@@ -41,4 +47,32 @@ body {
   display: flex;
   height: 80px;
   justify-content: center;
+}
+#c0 {
+  border-top-style: none;
+  border-left-style: none;
+}
+#c1 {
+  border-top-style: none;
+}
+#c2 {
+  border-top-style: none;
+  border-right-style: none;
+}
+#c3 {
+  border-left-style: none;
+}
+#c5 {
+  border-right-style: none;
+}
+#c6 {
+  border-left-style: none;
+  border-bottom-style: none;
+}
+#c7 {
+  border-bottom-style: none;
+}
+#c8 {
+  border-bottom-style: none;
+  border-right-style: none;
 }
