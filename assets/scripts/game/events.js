@@ -109,6 +109,7 @@ const checkForDraw = (currentBoard) => {
 
 const onPlay = () => {
   over = false
+  turn = 1
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFail)
