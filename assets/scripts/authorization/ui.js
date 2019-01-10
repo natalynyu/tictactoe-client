@@ -33,7 +33,7 @@ const onChangePasswordSuccess = () => {
   $('#password-message').text('Password was updated successfully.').show().fadeOut(2000)
 }
 const onChangePasswordFail = () => {
-  $('#password-message').text('There was an error with changing your password. Please try again.').show()
+  $('#password-message').text('Error with changing your password. Please try again.').show()
 }
 // Sign Out UI
 const onSignOutSuccess = () => {

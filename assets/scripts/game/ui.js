@@ -8,8 +8,6 @@ const onCreateGameSuccess = (responseData) => {
   $('.container').show()
   $('#gameInfo').show()
   $('#createGame').hide()
-  $('#signin-message').hide()
-  $('#password-message').hide()
   $('.cell').html('')
   $('#showAllGames-message').fadeOut(2500)
   $('#playerIndicator').text('Player 1, it\'s your turn!')
