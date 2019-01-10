@@ -3,10 +3,10 @@
 const store = require('../store')
 // Sign Up UI
 const onSignUpSuccess = responseData => {
-  $('#signup-message').text('Successfully created an account!')
+  $('#signup-message').text('Successfully created an account!').show()
 }
 const onSignUpFail = () => {
-  $('#signup-message').text('There was an error with signing up. Please try again.')
+  $('#signup-message').text('There was an error with signing up. Please try again.').show()
 }
 // Sign In UI
 const onSignInSuccess = responseData => {
@@ -22,6 +22,7 @@ const onSignInSuccess = responseData => {
   $('#signup-message').hide()
   $('#signout-message').hide()
   $('#showAllGames').show()
+  $('#gameInfo').show()
   $('#signin-message').text('You have successfully signed in.').show().fadeOut(2000)
 }
 const onSignInFail = () => {
