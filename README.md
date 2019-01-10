@@ -10,7 +10,7 @@ At the start of my project, I worked on the HTML to create a skeleton of the pag
 For future iterations, I would like to make this game multiplayer so that people from different devices can play against each other in a single game. I would also like to update the game so that players can choose their own game pieces as opposed to the default ‘x’ and ‘o.’ Lastly, I’d like to improve the code to make it more modular.
 
 
-* Wireframe:
+* Wireframe: https://docs.google.com/drawings/d/1dfMJQI_WBn9NH96qMfa-JOvUBrVpcZllvcL2VrsdMl8/edit?usp=sharing
 
 * User Stories:
   1. As a user, I want to be able to sign in so that I can play from my account.
